@@ -2,9 +2,9 @@
 
 namespace DevWizard\Localizer;
 
+use DevWizard\Localizer\Commands\LocalizerCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use DevWizard\Localizer\Commands\LocalizerCommand;
 
 class LocalizerServiceProvider extends PackageServiceProvider
 {
