@@ -175,7 +175,7 @@ final class Localizer
         $data[$key] = htmlentities($value ?? $key, ENT_QUOTES, 'UTF-8');
 
         $this->writeJson($locale, $data);
-        $this->clearCache($locale, phpAll: true);
+        $this->clearCache($locale); // Clear JSON cache
     }
 
     /**
@@ -202,7 +202,7 @@ final class Localizer
         $data = array_replace_recursive($this->getJson($locale), $items);
 
         $this->writeJson($locale, $data);
-        $this->clearCache($locale, phpAll: true);
+        $this->clearCache($locale); // Clear JSON cache
     }
 
     /**
@@ -227,7 +227,7 @@ final class Localizer
         unset($data[$key]);
 
         $this->writeJson($locale, $data);
-        $this->clearCache($locale, phpAll: true);
+        $this->clearCache($locale); // Clear JSON cache
     }
 
     /**
@@ -294,17 +294,20 @@ final class Localizer
             $langPath = self::getLangPath();
             $locales = [];
 
-            // Pre-compute paths to avoid repeated string ops
-            $jsonPattern = $langPath.'/*.json';
-            $dirPattern = $langPath.'/*';
+            // Ensure the lang path exists
+            if (! File::exists($langPath)) {
+                self::$availableLocalesCache = [];
+
+                return self::$availableLocalesCache;
+            }
 
             // Get locales from JSON files
-            foreach (File::glob($jsonPattern) as $file) {
+            foreach (File::glob($langPath.'/*.json') as $file) {
                 $locales[] = pathinfo($file, PATHINFO_FILENAME);
             }
 
             // Get locales from directories
-            foreach (File::directories($dirPattern) as $directory) {
+            foreach (File::directories($langPath) as $directory) {
                 $locales[] = basename($directory);
             }
 
