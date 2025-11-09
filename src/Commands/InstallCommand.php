@@ -31,11 +31,6 @@ final class InstallCommand extends Command
     private array $config = [];
 
     /**
-     * Selected frontend framework.
-     */
-    private ?string $framework = null;
-
-    /**
      * Execute the console command.
      */
     public function handle(): int
@@ -159,7 +154,6 @@ final class InstallCommand extends Command
     private function installFrontendPackage(): void
     {
         $framework = $this->option('framework') ?? $this->selectFramework();
-        $this->framework = $framework; // Store for later use
 
         if ($framework === 'skip') {
             $this->components->info('Skipping frontend package installation...');

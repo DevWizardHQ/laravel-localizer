@@ -1,0 +1,26 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#Called 'env' outside of the config directory which returns null when the config is cached, use 'config'.#"
+			count: 2
+			path: config/localizer.php
+
+		-
+			message: "#Instantiated class Stichoza\\\\GoogleTranslate\\\\GoogleTranslate not found.#"
+			count: 1
+			path: src/Jobs/TranslateLang.php
+
+		-
+			message: "#Call to method setSource\\(\\) on an unknown class Stichoza\\\\GoogleTranslate\\\\GoogleTranslate.#"
+			count: 1
+			path: src/Jobs/TranslateLang.php
+
+		-
+			message: "#Call to method setTarget\\(\\) on an unknown class Stichoza\\\\GoogleTranslate\\\\GoogleTranslate.#"
+			count: 1
+			path: src/Jobs/TranslateLang.php
+
+		-
+			message: "#Call to method translate\\(\\) on an unknown class Stichoza\\\\GoogleTranslate\\\\GoogleTranslate.#"
+			count: 1
+			path: src/Jobs/TranslateLang.php

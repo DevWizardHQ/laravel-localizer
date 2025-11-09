@@ -224,7 +224,7 @@ final class GenerateCommand extends Command
 
         return str_replace(
             ['{{ locale }}', '{{ timestamp }}', '{{ count }}', '{{ translations }}'],
-            [$locale, $this->getCurrentTimestamp(), $this->countTranslations($translations), $jsonContent],
+            [$locale, $this->getCurrentTimestamp(), (string) $this->countTranslations($translations), $jsonContent],
             $stub
         );
     }
