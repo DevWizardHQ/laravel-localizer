@@ -45,13 +45,6 @@ class LocalizerServiceProvider extends PackageServiceProvider
             $this->publishes([
                 __DIR__.'/../stubs/LocalizerMiddleware.php.stub' => app_path('Http/Middleware/LocalizerMiddleware.php'),
             ], 'laravel-localizer-middleware');
-
-            // Publish TypeScript helper stubs
-            $this->publishes([
-                __DIR__.'/../stubs/useTranslation.ts.stub' => base_path('resources/js/hooks/useTranslation.ts'),
-                __DIR__.'/../stubs/useTranslation.vue.ts.stub' => base_path('resources/js/composables/useTranslation.ts'),
-                __DIR__.'/../stubs/translator.ts.stub' => base_path('resources/js/utils/translator.ts'),
-            ], 'laravel-localizer-stubs');
         }
     }
 
