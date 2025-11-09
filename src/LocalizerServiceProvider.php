@@ -22,8 +22,6 @@ class LocalizerServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('laravel-localizer')
-            ->hasViews()
-            ->hasMigration('create_laravel_localizer_table')
             ->hasCommands([
                 InstallCommand::class,
                 SyncCommand::class,
