@@ -1,0 +1,42 @@
+/**
+ * Auto-generated translation index
+ * Generated at: {{ timestamp }}
+ * Available locales: {{ locales }}
+ *
+ * This file automatically exports all generated translations.
+ * Import this instead of individual locale files in your hooks.
+ *
+ * @see https://github.com/DevWizardHQ/laravel-localizer
+ */
+
+{{ imports }}
+
+{{ exports }}
+
+/**
+ * Translation registry with all available locales
+ */
+export const translations = {
+{{ registry }}
+};
+
+/**
+ * Get all available locale codes
+ */
+export function getAvailableLocales(): string[] {
+  return Object.keys(translations);
+}
+
+/**
+ * Check if a locale is available
+ */
+export function hasLocale(locale: string): boolean {
+  return locale in translations;
+}
+
+/**
+ * Get translations for a specific locale with fallback
+ */
+export function getTranslations(locale: string, fallback: string = 'en') {
+  return translations[locale as keyof typeof translations] || translations[fallback as keyof typeof translations];
+}

@@ -1,0 +1,13 @@
+/**
+ * Auto-generated translation file for locale: {{ locale }}
+ * Generated at: {{ timestamp }}
+ * Total translations: {{ count }}
+ *
+ * @see https://github.com/DevWizardHQ/laravel-localizer
+ */
+
+export const {{ locale }} = {{ translations }} as const;
+
+export type TranslationKeys = keyof typeof {{ locale }};
+
+export default {{ locale }};

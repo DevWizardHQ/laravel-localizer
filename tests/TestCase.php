@@ -2,9 +2,9 @@
 
 namespace DevWizard\Localizer\Tests;
 
+use DevWizard\Localizer\LocalizerServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use DevWizard\Localizer\LocalizerServiceProvider;
 
 class TestCase extends Orchestra
 {

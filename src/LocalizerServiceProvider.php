@@ -1,10 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DevWizard\Localizer;
 
+use DevWizard\Localizer\Commands\GenerateCommand;
+use DevWizard\Localizer\Commands\InstallCommand;
+use DevWizard\Localizer\Commands\SyncCommand;
+use DevWizard\Localizer\Commands\TranslateCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use DevWizard\Localizer\Commands\LocalizerCommand;
 
 class LocalizerServiceProvider extends PackageServiceProvider
 {
@@ -17,9 +22,45 @@ class LocalizerServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('laravel-localizer')
-            ->hasConfigFile()
             ->hasViews()
             ->hasMigration('create_laravel_localizer_table')
-            ->hasCommand(LocalizerCommand::class);
+            ->hasCommands([
+                InstallCommand::class,
+                SyncCommand::class,
+                TranslateCommand::class,
+                GenerateCommand::class,
+            ]);
+    }
+
+    public function packageBooted(): void
+    {
+        // Merge config
+        $this->mergeConfigFrom(__DIR__.'/../config/localizer.php', 'localizer');
+
+        if ($this->app->runningInConsole()) {
+            // Publish config file
+            $this->publishes([
+                __DIR__.'/../config/localizer.php' => config_path('localizer.php'),
+            ], 'laravel-localizer-config');
+
+            // Publish middleware
+            $this->publishes([
+                __DIR__.'/../stubs/LocalizerMiddleware.php.stub' => app_path('Http/Middleware/LocalizerMiddleware.php'),
+            ], 'laravel-localizer-middleware');
+
+            // Publish TypeScript helper stubs
+            $this->publishes([
+                __DIR__.'/../stubs/useTranslation.ts.stub' => base_path('resources/js/hooks/useTranslation.ts'),
+                __DIR__.'/../stubs/useTranslation.vue.ts.stub' => base_path('resources/js/composables/useTranslation.ts'),
+                __DIR__.'/../stubs/translator.ts.stub' => base_path('resources/js/utils/translator.ts'),
+            ], 'laravel-localizer-stubs');
+        }
+    }
+
+    public function packageRegistered(): void
+    {
+        $this->app->singleton(Localizer::class, function () {
+            return new Localizer;
+        });
     }
 }

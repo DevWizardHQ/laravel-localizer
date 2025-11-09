@@ -1,0 +1,4 @@
+
+# Laravel Localizer - Generated TypeScript translations
+{{ path }}/*.ts
+{{ path }}/README.md
