@@ -2,9 +2,25 @@
     "name": "devwizardhq/laravel-localizer",
     "description": "Laravel Localizer bridges Laravel translations to your SPA frontend (React/Vue/Inertia) and provides generated language assets, type-safe usage, and global translation helpers.",
     "keywords": [
-        "DevWizard",
         "laravel",
-        "laravel-localizer"
+        "laravel-localizer",
+        "localization",
+        "internationalization",
+        "i18n",
+        "l10n",
+        "translations",
+        "language",
+        "multilingual",
+        "spa",
+        "frontend",
+        "typescript",
+        "react",
+        "vue",
+        "inertia",
+        "inertiajs",
+        "php",
+        "laravel-package",
+        "devwizard"
     ],
     "homepage": "https://github.com/devwizardhq/laravel-localizer",
     "license": "MIT",
@@ -16,15 +32,16 @@
         }
     ],
     "require": {
-        "php": "^8.4",
-        "spatie/laravel-package-tools": "^1.16",
-        "illuminate/contracts": "^11.0||^12.0"
+        "php": "^8.3",
+        "illuminate/contracts": "^11.0||^12.0",
+        "laravel/framework": "11.*",
+        "orchestra/testbench": "9.*",
+        "spatie/laravel-package-tools": "^1.16"
     },
     "require-dev": {
         "laravel/pint": "^1.14",
         "nunomaduro/collision": "^8.8",
         "larastan/larastan": "^3.0",
-        "orchestra/testbench": "^10.0.0||^9.0.0",
         "pestphp/pest": "^4.0",
         "pestphp/pest-plugin-arch": "^4.0",
         "pestphp/pest-plugin-laravel": "^4.0",
