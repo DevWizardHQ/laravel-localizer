@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-localizer` will be documented in this file.
 
+## v1.0.1 - 2025-11-10
+
+### What's Changed
+
+- fix: Update import statements in InstallCommand for correct TypeScript typings
+
+**Full Changelog**: https://github.com/DevWizardHQ/laravel-localizer/compare/v1.0.0...v1.0.1
+
 ## v1.0.0 - 2025-11-09
 
 ### 🎉 Initial Stable Release
@@ -11,48 +19,56 @@ This is the first stable release of Laravel Localizer, a powerful localization p
 ### ✨ Core Features
 
 - **Translation Management**
+  
   - Create, read, update, and delete locales
   - Support for both JSON and PHP translation files
   - Bulk operations for efficient translation management
   - Nested translation support with dot notation
   - HTML entity escaping for security
   - In-memory caching for optimal performance
-
+  
 - **Automatic Translation Scanning**
+  
   - Scan codebase for `__()`, `trans()`, and `lang()` calls
   - Support for multiple file extensions (PHP, Blade, JS, JSX, TS, TSX, Vue)
   - Handles escaped quotes and special characters
   - Configurable include/exclude patterns
   - Preserves existing translations during sync
-
+  
 - **TypeScript Generation**
+  
   - Generate TypeScript files from Laravel translations
   - Auto-generated index file for easy imports
   - Type-safe translation keys
   - Vendor package translation support
   - Proper escaping for special characters
-
+  
 - **Auto-translation**
+  
   - Integrate with Google Translate for automatic translations
   - Queued job processing for background translation
   - Rate limiting to avoid API throttling
   - Skip already translated keys
   - Support for nested PHP translation arrays
+  
 
 ### 🎨 Frontend Integration
 
 - **React Package** - `@devwizard/laravel-localizer-react`
+  
   - `useLocalizer()` hook
   - Vite plugin for automatic regeneration
   - Full TypeScript support
   - Inertia.js integration
-
+  
 - **Vue Package** - `@devwizard/laravel-localizer-vue`
+  
   - `useLocalizer()` composable
   - Reactive locale and direction
   - Vite plugin for automatic regeneration
   - Full TypeScript support
   - Inertia.js integration
+  
 
 ### 🛠️ Commands
 
@@ -71,6 +87,7 @@ This is the first stable release of Laravel Localizer, a powerful localization p
   - Browser language (`Accept-Language`)
   - Fallback to default locale
   - Share locale data with Inertia.js
+  
 
 ### 📦 Configuration
 
@@ -122,4 +139,3 @@ This is the first stable release of Laravel Localizer, a powerful localization p
 - `spatie/laravel-package-tools` - Package scaffolding
 - `illuminate/contracts` - Laravel framework integration
 - `stichoza/google-translate-php` - Auto-translation (optional)
-
