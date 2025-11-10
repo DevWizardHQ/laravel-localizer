@@ -395,18 +395,18 @@ final class InstallCommand extends Command
         $this->newLine();
         $this->line('  Add to <fg=yellow>resources/js/bootstrap.ts</>:');
         $this->newLine();
-        $this->line('  <fg=cyan>import { translations } from \'@/lang\';</>');
+        $this->line('  <fg=cyan>import * as translations from \'@/lang\';</>');
         $this->newLine();
         $this->line('  <fg=cyan>declare global {</>');
         $this->line('  <fg=cyan>    interface Window {</>');
         $this->line('  <fg=cyan>        localizer: {</>');
-        $this->line('  <fg=cyan>            translations: Record<string, Record<string, string>>;</>');
+        $this->line('  <fg=cyan>            translations: typeof translations;</>');
         $this->line('  <fg=cyan>        };</>');
         $this->line('  <fg=cyan>    }</>');
         $this->line('  <fg=cyan>}</>');
         $this->newLine();
         $this->line('  <fg=cyan>window.localizer = {</>');
-        $this->line('  <fg=cyan>    translations: translations,</>');
+        $this->line('  <fg=cyan>    translations,</>');
         $this->line('  <fg=cyan>};</>');
         $this->newLine();
     }
