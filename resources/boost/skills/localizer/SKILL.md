@@ -282,7 +282,7 @@ php artisan localizer:generate --all
 
 ### Pattern: API with Locale Header
 
-```php
+```js
 // Send X-Locale header from frontend API client
 axios.defaults.headers.common['X-Locale'] = currentLocale;
 
@@ -327,7 +327,7 @@ use DevWizard\Localizer\Facades\Localizer;
 'typescript_output_path' => resource_path('js/lang'),
 'scan' => [
     'include'    => [app_path(), resource_path(), base_path('routes')],
-    'exclude'    => [base_path('vendor'), base_path('node_modules')],
+    'exclude'    => [base_path('bootstrap'), lang_path(), public_path(), storage_path(), base_path('vendor'), base_path('node_modules')],
     'extensions' => ['php', 'blade.php', 'js', 'jsx', 'ts', 'tsx', 'vue'],
 ],
 ```
