@@ -2,6 +2,21 @@
 
 All notable changes to `laravel-localizer` will be documented in this file.
 
+## v1.1.0 - 2026-03-10
+
+### What's Changed
+
+* chore(deps): Bump dependabot/fetch-metadata from 2.4.0 to 2.5.0 by @dependabot[bot] in https://github.com/DevWizardHQ/laravel-localizer/pull/3
+* chore(deps): Bump actions/checkout from 5 to 6 by @dependabot[bot] in https://github.com/DevWizardHQ/laravel-localizer/pull/2
+* feat: Add localizer skill documentation for translation management by @iqbalhasandev in https://github.com/DevWizardHQ/laravel-localizer/pull/4
+
+### New Contributors
+
+* @dependabot[bot] made their first contribution in https://github.com/DevWizardHQ/laravel-localizer/pull/3
+* @iqbalhasandev made their first contribution in https://github.com/DevWizardHQ/laravel-localizer/pull/4
+
+**Full Changelog**: https://github.com/DevWizardHQ/laravel-localizer/compare/v1.0.1...v1.1.0
+
 ## v1.0.1 - 2025-11-10
 
 ### What's Changed
