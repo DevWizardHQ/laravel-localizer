@@ -2,6 +2,15 @@
 
 All notable changes to `laravel-localizer` will be documented in this file.
 
+## v1.2.1 - 2026-04-11
+
+### What's Changed
+
+* chore(deps): Bump dependabot/fetch-metadata from 2.5.0 to 3.0.0 by @dependabot[bot] in https://github.com/DevWizardHQ/laravel-localizer/pull/6
+* chore(deps): Bump ramsey/composer-install from 3 to 4 by @dependabot[bot] in https://github.com/DevWizardHQ/laravel-localizer/pull/5
+
+**Full Changelog**: https://github.com/DevWizardHQ/laravel-localizer/compare/v1.2.0...v1.2.1
+
 ## v1.2.0 - 2026-04-11
 
 ### What's Changed
