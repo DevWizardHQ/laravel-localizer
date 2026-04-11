@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-localizer` will be documented in this file.
 
+## v1.2.0 - 2026-04-11
+
+### What's Changed
+
+* Add Laravel 13 support by @iqbalhasandev in https://github.com/DevWizardHQ/laravel-localizer/pull/7
+
+**Full Changelog**: https://github.com/DevWizardHQ/laravel-localizer/compare/v1.1.0...v1.2.0
+
 ## v1.1.0 - 2026-03-10
 
 ### What's Changed
