@@ -2,6 +2,16 @@
 
 All notable changes to `laravel-localizer` will be documented in this file.
 
+## v1.2.2 - 2026-04-12
+
+### What's Changed
+
+* Fix pint workflow triggering on tag pushes by @iqbalhasandev in https://github.com/DevWizardHQ/laravel-localizer/pull/8
+* Fix workflows triggering on tag pushes by @iqbalhasandev in https://github.com/DevWizardHQ/laravel-localizer/pull/9
+* fix: add pull_request triggers to CI workflows by @iqbalhasandev in https://github.com/DevWizardHQ/laravel-localizer/pull/10
+
+**Full Changelog**: https://github.com/DevWizardHQ/laravel-localizer/compare/v1.2.1...v1.2.2
+
 ## v1.2.1 - 2026-04-11
 
 ### What's Changed
