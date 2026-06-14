@@ -38,6 +38,7 @@ jobs:
             testbench: 11.*
           - laravel: 12.*
             testbench: 10.*
+            carbon: "^3.0 <3.12.0"
           - laravel: 11.*
             testbench: 9.*
 
@@ -60,8 +61,13 @@ jobs:
           echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
 
       - name: Install dependencies
+        env:
+          CARBON_CONSTRAINT: ${{ matrix.carbon }}
+        shell: bash
         run: |
-          composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
+          CARBON_ARG=""
+          if [ -n "$CARBON_CONSTRAINT" ]; then CARBON_ARG="nesbot/carbon:$CARBON_CONSTRAINT"; fi
+          composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" ${CARBON_ARG:+"$CARBON_ARG"} --no-interaction --no-update
           composer update --${{ matrix.stability }} --prefer-dist --no-interaction
 
       - name: List Installed Dependencies
