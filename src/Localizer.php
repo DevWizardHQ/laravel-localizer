@@ -433,7 +433,7 @@ final class Localizer
     /**
      * Export array using short [] syntax with proper indentation.
      */
-    private function exportArray(array $array, int $depth = 1): string
+    public function exportArray(array $array, int $depth = 1): string
     {
         if (empty($array)) {
             return '[]';

@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static void delete(string $locale)
  * @method static void translate(string $fromLocale, string $toLocale)
  * @method static array availableLocales()
+ * @method static string exportArray(array $array, int $depth = 1)
  *
  * @see \DevWizard\Localizer\Localizer
  */
