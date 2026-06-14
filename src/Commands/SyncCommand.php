@@ -405,7 +405,7 @@ final class SyncCommand extends Command
 
         foreach ($this->translations[$locale]['php'] ?? [] as $file => $translations) {
             $filePath = $localePath.'/'.$file.'.php';
-            $export = var_export($translations, true);
+            $export = $this->exportArray($translations);
 
             // Use stub for PHP array file
             $stub = File::get(__DIR__.'/../../stubs/php-array.stub');
@@ -415,6 +415,30 @@ final class SyncCommand extends Command
             $fileCount++;
             $totalKeys += count(Arr::dot($translations));
         }
+    }
+
+    /**
+     * Export array using short [] syntax with proper indentation.
+     */
+    private function exportArray(array $array, int $depth = 1): string
+    {
+        if (empty($array)) {
+            return '[]';
+        }
+
+        $indent = str_repeat('    ', $depth);
+        $closingIndent = str_repeat('    ', $depth - 1);
+        $parts = [];
+
+        foreach ($array as $key => $value) {
+            $exportedKey = var_export($key, true);
+            $exportedValue = is_array($value)
+                ? $this->exportArray($value, $depth + 1)
+                : var_export($value, true);
+            $parts[] = "{$indent}{$exportedKey} => {$exportedValue}";
+        }
+
+        return "[\n".implode(",\n", $parts).",\n{$closingIndent}]";
     }
 
     /**
