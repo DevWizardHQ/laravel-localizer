@@ -1,6 +1,7 @@
 <?php
 
 use DevWizard\Localizer\Jobs\TranslateLang;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Queue;
 
 describe('TranslateLang job', function () {
@@ -13,7 +14,7 @@ describe('TranslateLang job', function () {
     it('implements ShouldQueue interface', function () {
         $job = new TranslateLang('en', 'es');
 
-        expect($job)->toBeInstanceOf(\Illuminate\Contracts\Queue\ShouldQueue::class);
+        expect($job)->toBeInstanceOf(ShouldQueue::class);
     });
 
     it('has correct retry configuration', function () {

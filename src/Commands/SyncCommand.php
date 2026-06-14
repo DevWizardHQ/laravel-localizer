@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace DevWizard\Localizer\Commands;
 
+use DevWizard\Localizer\Facades\Localizer;
 use Illuminate\Console\Command;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\File;
@@ -405,7 +406,7 @@ final class SyncCommand extends Command
 
         foreach ($this->translations[$locale]['php'] ?? [] as $file => $translations) {
             $filePath = $localePath.'/'.$file.'.php';
-            $export = var_export($translations, true);
+            $export = Localizer::exportArray($translations);
 
             // Use stub for PHP array file
             $stub = File::get(__DIR__.'/../../stubs/php-array.stub');

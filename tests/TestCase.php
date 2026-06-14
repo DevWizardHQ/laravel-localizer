@@ -2,6 +2,7 @@
 
 namespace DevWizard\Localizer\Tests;
 
+use DevWizard\Localizer\Localizer;
 use DevWizard\Localizer\LocalizerServiceProvider;
 use Illuminate\Support\Facades\File;
 use Orchestra\Testbench\TestCase as Orchestra;
@@ -50,7 +51,7 @@ class TestCase extends Orchestra
     protected function resetLocalizerCache(): void
     {
         try {
-            $reflection = new \ReflectionClass(\DevWizard\Localizer\Localizer::class);
+            $reflection = new \ReflectionClass(Localizer::class);
 
             if ($reflection->hasProperty('cache')) {
                 $cacheProperty = $reflection->getProperty('cache');

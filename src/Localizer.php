@@ -431,24 +431,27 @@ final class Localizer
     }
 
     /**
-     * Custom array exporter (optimized for readability and speed).
+     * Export array using short [] syntax with proper indentation.
      */
-    private function exportArray(array $array): string
+    public function exportArray(array $array, int $depth = 1): string
     {
         if (empty($array)) {
             return '[]';
         }
 
+        $indent = str_repeat('    ', $depth);
+        $closingIndent = str_repeat('    ', $depth - 1);
         $parts = [];
+
         foreach ($array as $key => $value) {
-            if (is_array($value)) {
-                $parts[] = var_export($key, true).' => '.$this->exportArray($value);
-            } else {
-                $parts[] = var_export($key, true).' => '.var_export($value, true);
-            }
+            $exportedKey = var_export($key, true);
+            $exportedValue = is_array($value)
+                ? $this->exportArray($value, $depth + 1)
+                : var_export($value, true);
+            $parts[] = "{$indent}{$exportedKey} => {$exportedValue}";
         }
 
-        return '['.implode(', ', $parts).']';
+        return "[\n".implode(",\n", $parts).",\n{$closingIndent}]";
     }
 
     /**
