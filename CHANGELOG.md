@@ -2,6 +2,15 @@
 
 All notable changes to `laravel-localizer` will be documented in this file.
 
+## v1.2.3 - 2026-06-14
+
+### What's Changed
+
+* chore(deps): Bump dependabot/fetch-metadata from 3.0.0 to 3.1.0 by @dependabot[bot] in https://github.com/DevWizardHQ/laravel-localizer/pull/11
+* fix: use short [] array syntax in PHP translation file writer by @iqbalhasandev in https://github.com/DevWizardHQ/laravel-localizer/pull/12
+
+**Full Changelog**: https://github.com/DevWizardHQ/laravel-localizer/compare/v1.2.2...v1.2.3
+
 ## v1.2.2 - 2026-04-12
 
 ### What's Changed
