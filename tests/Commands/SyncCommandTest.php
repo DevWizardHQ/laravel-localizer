@@ -1,5 +1,6 @@
 <?php
 
+use DevWizard\Localizer\Facades\Localizer;
 use Illuminate\Support\Facades\File;
 
 describe('SyncCommand basic functionality', function () {
@@ -78,7 +79,7 @@ describe('SyncCommand translation key scanning', function () {
         $this->artisan('localizer:sync --locales=en')
             ->assertSuccessful();
 
-        $json = \DevWizard\Localizer\Facades\Localizer::getJson('en');
+        $json = Localizer::getJson('en');
 
         // Check if the json has content (sync might find and add keys)
         expect($json)->toBeArray();

@@ -2,6 +2,7 @@
 
 use DevWizard\Localizer\Localizer;
 use DevWizard\Localizer\LocalizerServiceProvider;
+use Illuminate\Support\Facades\Artisan;
 
 describe('LocalizerServiceProvider registration', function () {
     it('registers the localizer singleton', function () {
@@ -45,25 +46,25 @@ describe('LocalizerServiceProvider configuration', function () {
 
 describe('LocalizerServiceProvider commands', function () {
     it('registers install command', function () {
-        $commands = \Illuminate\Support\Facades\Artisan::all();
+        $commands = Artisan::all();
 
         expect($commands)->toHaveKey('localizer:install');
     });
 
     it('registers sync command', function () {
-        $commands = \Illuminate\Support\Facades\Artisan::all();
+        $commands = Artisan::all();
 
         expect($commands)->toHaveKey('localizer:sync');
     });
 
     it('registers translate command', function () {
-        $commands = \Illuminate\Support\Facades\Artisan::all();
+        $commands = Artisan::all();
 
         expect($commands)->toHaveKey('localizer:translate');
     });
 
     it('registers generate command', function () {
-        $commands = \Illuminate\Support\Facades\Artisan::all();
+        $commands = Artisan::all();
 
         expect($commands)->toHaveKey('localizer:generate');
     });
@@ -85,14 +86,14 @@ describe('LocalizerServiceProvider publishables', function () {
 
 describe('LocalizerServiceProvider facade', function () {
     it('can use localizer facade', function () {
-        $locales = \DevWizard\Localizer\Facades\Localizer::availableLocales();
+        $locales = DevWizard\Localizer\Facades\Localizer::availableLocales();
 
         expect($locales)->toBeArray();
     });
 
     it('facade resolves to same instance as container', function () {
         $fromContainer = app(Localizer::class);
-        $fromFacade = \DevWizard\Localizer\Facades\Localizer::getFacadeRoot();
+        $fromFacade = DevWizard\Localizer\Facades\Localizer::getFacadeRoot();
 
         expect($fromFacade)->toBe($fromContainer);
     });
