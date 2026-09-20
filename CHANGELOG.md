@@ -2,6 +2,17 @@
 
 All notable changes to `laravel-localizer` will be documented in this file.
 
+## v1.2.4 - 2026-09-20
+
+Maintenance release. No user-facing behaviour changes.
+
+### Dependencies
+
+- Allow Pest 5 alongside 3 and 4, added to the existing ranges rather than replacing them so CI legs on older PHP keep resolving a supported Pest.
+- `actions/checkout` 6 → 7.
+
+148 tests pass, PHPStan clean.
+
 ## v1.2.3 - 2026-06-14
 
 ### What's Changed
